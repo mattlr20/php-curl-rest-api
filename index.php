@@ -1,5 +1,5 @@
 $name = "pen";
-$url = "http://localhost/nottinghamintranet/common/fap/api/".$name;
+$url = "http://localhost/path/to/project/api/".$name;
 
 $client = curl_init();
 curl_setopt($client, CURLOPT_URL, $url);
