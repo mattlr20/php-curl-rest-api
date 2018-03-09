@@ -1,3 +1,4 @@
+<?php
 $name = "pen";
 $url = "http://localhost/path/to/project/api/".$name;
 
