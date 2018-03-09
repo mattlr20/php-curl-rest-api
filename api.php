@@ -2,28 +2,21 @@
 header("Content-Type:application/json");
 require "data.php";
 
-if(!empty($_GET['name']))
-{
+if(!empty($_GET['name'])) {
 	$name=$_GET['name'];
 	$price = get_price($name);
 	
-	if(empty($price))
-	{
+	if(empty($price)) {
 		response(200,"Product Not Found",NULL);
-	}
-	else
-	{
+	} else {
 		response(200,"Product Found",$price);
 	}
-	
-}
-else
-{
+
+} else {
 	response(400,"Invalid Request",NULL);
 }
 
-function response($status,$status_message,$data)
-{
+function response($status,$status_message,$data) {
 	header("HTTP/1.1 ".$status);
 	
 	$response['status']=$status;
