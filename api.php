@@ -3,9 +3,10 @@ header("Content-Type:application/json");
 require "data.php";
 
 switch($_SERVER['REQUEST_METHOD']) {
-	case 'GET': apiGET(); break;
-	case 'PUT': apiPUT(); break;
-	case 'UPDATE': apiUPDATE(); break;
+	case 'GET'   : apiGET(); break;
+	case 'POST'  : apiPOST(); break;
+	case 'PUT'   : apiPUT(); break;
+	case 'PATCH' : apiPATCH(); break;
 	case 'DELETE': apiDELETE(); break;
 	default: response(400,"Invalid Request",NULL); break;
 }
@@ -22,9 +23,19 @@ function apiGET() {
 		$contact = getContacts('all');
 		response(200,"All Contacts",$contact);
 	}
-} 
+}
+
+function apiPOST() {
+	$response['data']= $_SERVER['REQUEST_METHOD'];
+	echo json_encode($response);
+}
 
 function apiPUT() {
+	$response['data']= $_SERVER['REQUEST_METHOD'];
+	echo json_encode($response);
+}
+
+function apiPATCH() {
 	$response['data']= $_SERVER['REQUEST_METHOD'];
 	echo json_encode($response);
 }
@@ -34,10 +45,6 @@ function apiDELETE() {
 	echo json_encode($response);
 }
 
-function apiUPDATE() {
-	$response['data']= $_SERVER['REQUEST_METHOD'];
-	echo json_encode($response);
-}
 
 function response($status,$status_message,$data) {
 	header("HTTP/1.1 ".$status);
