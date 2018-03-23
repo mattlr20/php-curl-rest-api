@@ -20,7 +20,7 @@
 	$appdir = $_SERVER['HTTP_HOST']."/".explode("/",substr($_SERVER['PHP_SELF'],1 ))[0];
     $search = (isset($_POST['search']))?$_POST['search']:'all';
     // $data = array( 'name' => $_POST['name']);
-    $url = "http://".$appdir."/common/php-curl-rest-api/api/".$search;
+    $url = "http://".$appdir."/pathto/php-curl-rest-api/api/".$search;
     $client = curl_init();
     curl_setopt($client, CURLOPT_URL, $url);
     //curl_setopt($client, CURLOPT_CUSTOMREQUEST, 'PUT');
